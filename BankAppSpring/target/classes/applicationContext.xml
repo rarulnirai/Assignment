@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+<util:map id="accountList" map-class="java.util.HashMap">
+</util:map>
+
+<bean id="repos" class="com.capgemini.BankAppSpring.Repository.RepositoryImpl">
+<constructor-arg index="0" ref="accountList"></constructor-arg>
+</bean>
+
+<bean id="service" class="com.capgemini.BankAppSpring.Service.ServiceImpl">
+<constructor-arg index="0" ref="repos"/>
+</bean>
+
+<bean id="account" class="com.capgemini.BankAppSpring.Beans.Account">
+<constructor-arg index="0" value="12345"/>
+<constructor-arg index="1" value="Arul"/>
+<constructor-arg index="2" value="2000"/>
+</bean>
+
+<bean id="account1" class="com.capgemini.BankAppSpring.Beans.Account">
+<constructor-arg index="0" value="54321"/>
+<constructor-arg index="1" value="Riya"/>
+<constructor-arg index="2" value="3000"/>
+</bean>
+
+</beans>
